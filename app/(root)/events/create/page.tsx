@@ -4,23 +4,22 @@ import { auth } from "@clerk/nextjs";
 const CreateEvent = () => {
   const { sessionClaims } = auth();
 
-  // Log the entire sessionClaims object for debugging purposes
   console.log('Session Claims:', sessionClaims);
-
-  // Note the correct key is `userID` (case-sensitive)
   const userId = sessionClaims?.userID as string;
-
-  // Log the userId to ensure it's correctly retrieved
   console.log('User ID:', userId);
 
   return (
     <>
-      <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
-        <h3 className="wrapper h3-bold text-center sm:text-left">Create Event</h3>
+      <section className="bg-gradient-to-r from-cyan-500 to-blue-500 py-10 text-white">
+        <div className="container mx-auto text-center">
+          <h3 className="text-4xl font-bold">Create Event</h3>  {/* Increased font size */}
+        </div>
       </section>
 
-      <div className="wrapper my-8">
-        <EventForm userId={userId} type="Create" />
+      <div className="container mx-auto my-8 px-4 md:px-0">
+        <div className="bg-white rounded-lg shadow-lg p-8">
+          <EventForm userId={userId} type="Create" />
+        </div>
       </div>
     </>
   );

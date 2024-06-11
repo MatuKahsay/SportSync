@@ -21,32 +21,32 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
   return (
     <>
-      <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10">
-        <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
-          <div className="flex flex-col justify-center gap-8">
-            <h1 className="h1-bold">SportSync: Unite, Play, Conquer!</h1>
-            <p className="p-regular-20 md:p-regular-24">SportSync is your ultimate platform to schedule and participate in sporting events at UCR. From pickup basketball games to neighborhood soccer matches, our platform connects UCR students to organize, share, and enjoy sports together.</p>
-            <Button size="lg" asChild className="button w-full sm:w-fit">
-              <Link href="#events">
+      <section className="bg-gradient-to-r from-cyan-500 to-blue-500 py-10 md:py-14 text-white">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          <div className="space-y-6">
+            <h1 className="text-4xl font-extrabold shadow-lg">Unite, Play, Conquer at SportSync!</h1>
+            <p className="text-lg font-light">Connect with UCR students for sports events, from pickup basketball to soccer matches. Your hub for organizing and enjoying sports together.</p>
+            <Link href="#events" passHref>
+              <Button className="bg-white text-blue-700 hover:bg-blue-700 hover:text-white py-4 px-8 rounded-full font-bold transition duration-300 ease-in-out shadow-lg">
                 Explore Now
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </div>
 
           <Image 
-            src="/assets/images/hero.png"
-            alt="hero"
+            src="/assets/images/sport.jpg"
+            alt="SportSync community in action"
             width={1000}
             height={1000}
-            className="max-h-[70vh] object-contain object-center 2xl:max-h-[50vh]"
+            className="rounded-lg shadow-xl"
           />
         </div>
-      </section> 
+      </section>
 
-      <section id="events" className="wrapper my-8 flex flex-col gap-8 md:gap-12">
-        <h2 className="h2-bold">Join the Movement, Trusted by UCR Athletes</h2>
-
-        <div className="flex w-full flex-col gap-5 md:flex-row">
+      <section id="events" className="container mx-auto my-12 space-y-8">
+        <h2 className="text-3xl font-bold text-gray-800">Join the Movement, Trusted by UCR Athletes</h2>
+        
+        <div className="flex flex-col md:flex-row gap-5 items-stretch">
           <Search />
           <CategoryFilter />
         </div>
@@ -54,7 +54,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
         <Collection 
           data={events?.data}
           emptyTitle="No Events Found"
-          emptyStateSubtext="Check back soon for more events!"
+          emptyStateSubtext="Stay tuned for more events!"
           collectionType="All_Events"
           limit={6}
           page={page}
